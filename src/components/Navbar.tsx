@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, LogIn, LayoutDashboard } from "lucide-react";
+import { useAuth } from "@/hooks/useAuth";
 
 const links = [
   { label: "About", href: "#about" },
@@ -12,6 +13,9 @@ const links = [
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const { user, role } = useAuth();
+
+  const dashboardLink = role === "admin" ? "/admin-dashboard" : "/student-dashboard";
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
@@ -25,6 +29,15 @@ const Navbar = () => {
               {l.label}
             </a>
           ))}
+          {user ? (
+            <a href={dashboardLink} className="flex items-center gap-1 text-sm font-medium bg-primary text-primary-foreground px-3 py-1.5 rounded-lg hover:opacity-90">
+              <LayoutDashboard className="w-4 h-4" /> Dashboard
+            </a>
+          ) : (
+            <a href="/auth" className="flex items-center gap-1 text-sm font-medium bg-primary text-primary-foreground px-3 py-1.5 rounded-lg hover:opacity-90">
+              <LogIn className="w-4 h-4" /> Sign In
+            </a>
+          )}
         </div>
         <button onClick={() => setOpen(!open)} className="md:hidden text-foreground">
           {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -37,6 +50,11 @@ const Navbar = () => {
               {l.label}
             </a>
           ))}
+          {user ? (
+            <a href={dashboardLink} className="block py-2 text-sm font-medium text-primary">Dashboard</a>
+          ) : (
+            <a href="/auth" className="block py-2 text-sm font-medium text-primary">Sign In</a>
+          )}
         </div>
       )}
     </nav>
