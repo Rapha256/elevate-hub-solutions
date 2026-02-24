@@ -1,8 +1,8 @@
-import teamPeace from "@/assets/team-peace.jpeg";
-import teamAgnes from "@/assets/team-agnes.jpeg";
+import teamPeace from "@/assets/team-agnes.jpeg";
+import teamAgnes from "@/assets/team-peace.jpeg";
 import teamRapha from "@/assets/team-rapha.jpeg";
 import teamEric from "@/assets/team-eric.jpeg";
-import hubTrainer from "@/assets/hub-trainer.jpeg";
+import teamMuhindo from "@/assets/team-muhindo.jpeg";
 
 const team = [
   {
@@ -28,7 +28,7 @@ const team = [
     name: "Muhindo Pius",
     role: "Group Member",
     phone: "+256 773 614 900",
-    image: hubTrainer,
+    image: teamMuhindo,
   },
   {
     name: "Eric Bulega",
