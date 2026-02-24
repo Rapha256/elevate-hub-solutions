@@ -5,7 +5,10 @@ const Footer = () => (
         © 2026 Elevate Era Hub 92 — Created by <strong className="text-background/80">Eng. Rapha Adamz</strong>
       </p>
       <p className="text-background/40 text-xs mt-2">
-        Dedicated to solving problems facing Era92 Elevate Hub. Katanga Lungujja & Jinja, Uganda.
+        Era92 Elevate Hub | <a href="mailto:info@era92.com" className="underline hover:text-background/60">info@era92.com</a> | +256 784 239 786
+      </p>
+      <p className="text-background/40 text-xs mt-1">
+        Katanga Lungujja & Jinja, Kampala, Uganda.
       </p>
     </div>
   </footer>

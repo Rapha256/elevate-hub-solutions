@@ -1,10 +1,41 @@
+import teamPeace from "@/assets/team-peace.jpeg";
+import teamAgnes from "@/assets/team-agnes.jpeg";
+import teamRapha from "@/assets/team-rapha.jpeg";
+import teamEric from "@/assets/team-eric.jpeg";
 import hubTrainer from "@/assets/hub-trainer.jpeg";
 
 const team = [
-  { name: "Rapha (Adamz Ntege)", role: "Group Leader", highlight: true },
-  { name: "Agness", role: "Group Secretary & Discussant" },
-  { name: "Peace", role: "Team Member" },
-  { name: "Jesca", role: "Team Member" },
+  {
+    name: "Namirimo Peace",
+    role: "Group Discussant",
+    phone: "+255 755 733 515",
+    image: teamPeace,
+  },
+  {
+    name: "Aikomo Agnes",
+    role: "Group Secretary",
+    phone: "+256 763 073 899",
+    image: teamAgnes,
+  },
+  {
+    name: "Rapha (Adamz Ntege)",
+    role: "Group Leader & Engineer",
+    phone: "+966 501 858 627 / +256 703 539 749",
+    image: teamRapha,
+    highlight: true,
+  },
+  {
+    name: "Muhindo Pius",
+    role: "Group Member",
+    phone: "+256 773 614 900",
+    image: hubTrainer,
+  },
+  {
+    name: "Eric Bulega",
+    role: "Group Motivator",
+    phone: "+256 748 047 573",
+    image: teamEric,
+  },
 ];
 
 const TeamSection = () => {
@@ -18,19 +49,29 @@ const TeamSection = () => {
           </h2>
           <p className="text-lg text-muted-foreground">Dedicated to solving problems facing Era92 Elevate Hub</p>
         </div>
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <img src={hubTrainer} alt="Team presenting at the hub" className="rounded-2xl object-cover w-full h-96" />
-          <div className="space-y-4">
-            {team.map((m) => (
-              <div key={m.name} className={`p-6 rounded-xl border transition-colors ${m.highlight ? 'bg-primary/10 border-primary/30' : 'bg-card border-border hover:border-primary/20'}`}>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {team.map((m) => (
+            <div
+              key={m.name}
+              className={`rounded-2xl border overflow-hidden transition-all hover:shadow-lg ${
+                m.highlight ? "bg-primary/5 border-primary/30 ring-2 ring-primary/20" : "bg-card border-border hover:border-primary/20"
+              }`}
+            >
+              <img
+                src={m.image}
+                alt={m.name}
+                className="w-full h-72 object-cover object-top"
+              />
+              <div className="p-5">
                 <h3 className="text-xl font-bold text-foreground">{m.name}</h3>
-                <p className="text-muted-foreground">{m.role}</p>
+                <p className="text-primary font-medium text-sm">{m.role}</p>
+                <p className="text-muted-foreground text-sm mt-2">📞 {m.phone}</p>
                 {m.highlight && (
-                  <p className="text-sm text-primary mt-2 font-medium">Presenter: Kiyemba (@AdamzNtege)</p>
+                  <p className="text-xs text-muted-foreground mt-1">Presenter: Kiyemba (@AdamzNtege)</p>
                 )}
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
